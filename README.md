@@ -1,2 +1,0 @@
-# HelloWorldMcomp
-Mcomp Group Project

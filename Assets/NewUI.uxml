@@ -1,0 +1,10 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements">
+    <ui:VisualElement name="screen" style="height: 542px; width: 344px; align-items: center; justify-content: space-between;">
+        <Style path="Assets/NewUI.uss" />
+        <ui:VisualElement name="menu-column" class="menu-column">
+            <ui:VisualElement name="menu" class="menu-column">
+                <ui:Button text="Play" name="play-game" class="menu-button" style="height: 66px; width: 86px; -unity-font: resource('UI Builder/TanksMainMenu/Teko-Regular'); border-color: rgba(226, 0, 0, 255); justify-content: flex-start; align-items: auto; border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0; background-color: rgba(0, 0, 0, 255); opacity: 1;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

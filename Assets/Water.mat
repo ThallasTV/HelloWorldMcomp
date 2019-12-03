@@ -12,7 +12,7 @@ Material:
     type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
+  m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap:
@@ -27,5 +27,5 @@ Material:
     - Vector1_C82A2A55: 2
     - Vector1_E2B267F4: 7
     m_Colors:
-    - Color_BC82E41B: {r: 26.280775, g: 0.72726333, b: 0, a: 0}
-    - Color_FFD0B757: {r: 1, g: 0, b: 0.12769938, a: 0}
+    - Color_BC82E41B: {r: 0, g: 2.0857036, b: 7.3772106, a: 0}
+    - Color_FFD0B757: {r: 0, g: 0.7555051, b: 1, a: 0}

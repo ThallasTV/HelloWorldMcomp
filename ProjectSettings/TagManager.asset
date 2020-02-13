@@ -8,8 +8,9 @@ TagManager:
   - NPC
   - Obstacle
   - Water
-  - Food
   - Resource
+  - Fire
+  - Animal
   layers:
   - Default
   - TransparentFX

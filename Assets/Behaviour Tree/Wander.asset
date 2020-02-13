@@ -40,15 +40,16 @@ MonoBehaviour:
     type=\"UnityEngine.Vector3\" isBlackboard=\"True\" blackboard=\"wanderTarget\"
     />\r\n        </inputValues>\r\n      </inputParams>\r\n      <outputParams />\r\n
     \     <localParams />\r\n    </ActionNode>\r\n  </runtimeInfo>\r\n  <editorInfo>\r\n
-    \   <BehaviorTree id=\"0\" _name=\"Wander\" _description=\"\" _removeIfClosed=\"False\">\r\n
-    \     <_rootList>\r\n        <elem>\r\n          <ActionNode id=\"1\" />\r\n        </elem>\r\n
-    \       <elem>\r\n          <ActionNode id=\"2\" />\r\n        </elem>\r\n        <elem>\r\n
-    \         <SequenceNode id=\"3\" />\r\n        </elem>\r\n        <elem>\r\n          <RepeatDecorator
+    \   <BehaviorTree id=\"0\" _name=\"Wander\" _description=\"Sets creatures to wander
+    around the area randomly.\" _removeIfClosed=\"False\">\r\n      <_rootList>\r\n
+    \       <elem>\r\n          <ActionNode id=\"1\" />\r\n        </elem>\r\n        <elem>\r\n
+    \         <ActionNode id=\"2\" />\r\n        </elem>\r\n        <elem>\r\n          <SequenceNode
+    id=\"3\" />\r\n        </elem>\r\n        <elem>\r\n          <RepeatDecorator
     id=\"4\" />\r\n        </elem>\r\n      </_rootList>\r\n      <_nodes>\r\n        <nodes>\r\n
     \         <ActionNode id=\"1\" />\r\n          <ActionNode id=\"2\" />\r\n          <SequenceNode
     id=\"3\" />\r\n          <RepeatDecorator id=\"4\" />\r\n        </nodes>\r\n
     \     </_nodes>\r\n    </BehaviorTree>\r\n    <RepeatDecorator id=\"4\">\r\n      <_data>\r\n
-    \       <data breakpoint=\"0\" selected=\"True\" position=\"463 91\" name=\"Repeat\"
+    \       <data breakpoint=\"0\" selected=\"False\" position=\"463 91\" name=\"Repeat\"
     description=\"Repeats the execution of its child node\" cardinality=\"1\" hasParent=\"False\">\r\n
     \         <BehaviorTree id=\"0\" />\r\n          <RepeatDecorator id=\"4\" />\r\n
     \       </data>\r\n      </_data>\r\n    </RepeatDecorator>\r\n    <SequenceNode

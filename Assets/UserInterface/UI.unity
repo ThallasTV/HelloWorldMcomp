@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 35565845}
   - component: {fileID: 35565844}
   m_Layer: 5
-  m_Name: Button
+  m_Name: SpellButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -219,7 +219,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f12ad76854232b24e957d7e2611bc73e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fe8daae2c4c5ef449aeaf1773c63a75e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -623,7 +623,7 @@ GameObject:
   - component: {fileID: 1060824088}
   - component: {fileID: 1060824087}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: PlanetButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -709,7 +709,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f12ad76854232b24e957d7e2611bc73e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bab2113ecf35bee43a46b470cce173ab, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -844,7 +844,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f12ad76854232b24e957d7e2611bc73e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 71d49169359fb9946b348cab4abf699a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

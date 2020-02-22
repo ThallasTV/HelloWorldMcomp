@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: cbfe36cfddfde964d9dfce63a355d5dd
   - enabled: 1
-    path: Assets/Scenes/UI.unity
+    path: Assets/UserInterface/UI.unity
     guid: fcde0b4e1ad0e404fa293e35d8b11fa0
   - enabled: 1
     path: Assets/Scenes/BasicMovement.unity

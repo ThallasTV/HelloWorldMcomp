@@ -19,7 +19,7 @@ public class CircularMenu : MonoBehaviour
         menuItems = buttons.Count;
         foreach(MenuButton button in buttons)
         {
-            button.sceneImage.color = button.NormalColor;
+            button.sceneImage.color = Color.clear;
         }
         CurrentMenuItem = 0;
         OldMenuItem = 0;
@@ -29,22 +29,27 @@ public class CircularMenu : MonoBehaviour
     void Update()
     {
         GetCurrentMenuItem();
-        if (Input.GetButtonDown("G")) ButtonAction();
+        if (Input.GetButtonDown("Fire1")) 
+            ButtonAction();
     }
 
     public void GetCurrentMenuItem()
     {
         MousePosition = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
         toVector2M = new Vector2(MousePosition.x / Screen.width, MousePosition.y / Screen.height);
-        float angle = (Mathf.Atan2(fromVector2M.y - centercircle.y, fromVector2M.x - centercircle.x) - Mathf.Atan2(toVector2M.y - centercircle.y, toVector2M.x - centercircle.x) * Mathf.Rad2Deg);
+        float angle = -((Mathf.Atan2(fromVector2M.y - centercircle.y, fromVector2M.x - centercircle.x) -
+                        Mathf.Atan2(toVector2M.y - centercircle.y, toVector2M.x - centercircle.x) *
+                        Mathf.Rad2Deg));
+
         if (angle < 0)
-        {
             angle += 360;
-        }
+
+        Debug.Log("menu items: " + menuItems);
         CurrentMenuItem = (int)(angle / (360 / menuItems));
+
         if (CurrentMenuItem != OldMenuItem)
         {
-            buttons[OldMenuItem].sceneImage.color = buttons[OldMenuItem].NormalColor;
+            buttons[OldMenuItem].sceneImage.color = Color.clear;
             OldMenuItem = CurrentMenuItem;
             buttons[CurrentMenuItem].sceneImage.color = buttons[CurrentMenuItem].HighlightedColor;
         }
@@ -57,13 +62,14 @@ public class CircularMenu : MonoBehaviour
             print ("You have pressed the first button. ");
         }
     }
+
     [System.Serializable]
     public class MenuButton
     {
         public string Name;
         public Image sceneImage;
-        public Color NormalColor = Color.white;
-        public Color HighlightedColor = Color.grey;
-        public Color PressedColor = Color.grey;
+        public Color NormalColor;
+        public Color HighlightedColor;
+        public Color PressedColor;
     }
 }

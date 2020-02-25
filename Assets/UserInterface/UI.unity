@@ -251,6 +251,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spells: {fileID: 219715324}
+  rainButton: {fileID: 0}
 --- !u!1 &173042076
 GameObject:
   m_ObjectHideFlags: 0
@@ -1002,7 +1003,7 @@ GameObject:
   - component: {fileID: 744873323}
   - component: {fileID: 744873322}
   m_Layer: 5
-  m_Name: Button (9)
+  m_Name: CloseButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1024,7 +1025,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.0000038146973, y: 0}
+  m_AnchoredPosition: {x: -2, y: -2}
   m_SizeDelta: {x: 30, y: 30}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &744873322
@@ -1088,7 +1089,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2b54b0c32e10df4419159b15c4d95f91, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cc899526f2c69904d9d31327f397eb43, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1472,7 +1473,7 @@ GameObject:
   - component: {fileID: 1402087989}
   - component: {fileID: 1402087988}
   m_Layer: 5
-  m_Name: Inventory
+  m_Name: InventoryButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1898,6 +1899,7 @@ GameObject:
   - component: {fileID: 2088158677}
   - component: {fileID: 2088158676}
   - component: {fileID: 2088158675}
+  - component: {fileID: 2088158678}
   m_Layer: 5
   m_Name: SettingsButton
   m_TagString: Untagged
@@ -2003,3 +2005,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2088158673}
   m_CullTransparentMesh: 0
+--- !u!114 &2088158678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2088158673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fc60f1708c06024a887fbf1ba8b393b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  settings: {fileID: 2049517306}
+  closeButton: {fileID: 0}

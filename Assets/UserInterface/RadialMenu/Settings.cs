@@ -7,14 +7,13 @@ public class Settings : MonoBehaviour
     public GameObject settings;
     public Button closeButton;
     public Button saveButton;
-    bool open;   
     // Start is called before the first frame update
     void Start()
     {
         settings.SetActive(false);
+        closeButton.GetComponent<Button>().onClick.AddListener(() => { CloseSettings(); });
+        saveButton.GetComponent<Button>().onClick.AddListener(() => { SaveSettings(); });
         this.GetComponent<Button>().onClick.AddListener(() => { OpenSettings(); });
-        closeButton.onClick.AddListener(() => { CloseSettings(); });
-        saveButton.onClick.AddListener(() => { SaveSettings(); });
     }
 
     // Update is called once per frame
@@ -34,5 +33,6 @@ public class Settings : MonoBehaviour
     {
 
     }
+    
 
 }

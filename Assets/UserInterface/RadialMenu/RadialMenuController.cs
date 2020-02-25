@@ -10,11 +10,11 @@ public class RadialMenuController : MonoBehaviour
     List<Button> childButtons = new List<Button>();
     //checks if the main button is opened
     bool open = false;
-    //initial distance between center button and any of the child buttons
+    //initial distance between main button and any of the child buttons
     //increase if more buttons needed else it can be lowered
     int buttonDistance = 100;
     //the speed of the buttons travelling from main button to buttonGoalPos
-    float speed = 2.0f;
+    float speed = 3.0f;
     //array of child buttons' destinated position after menu is opened
     Vector2[] buttonGoalPos;
     void Start()
@@ -22,10 +22,14 @@ public class RadialMenuController : MonoBehaviour
         //get all child button components that are attached to main button but filtering out the parent object(main button)
         childButtons = this.GetComponentsInChildren<Button>(true).
                             Where(x => x.gameObject.transform.parent != transform.parent).ToList();
+        //also filter out default2 buttons, can use line above if there aren't any child buttons inside child buttons
+        //childButtons = GetTopLevelChildren(transform);
+
         //setting buttonGoalPos's size to be the amount of child buttons
         buttonGoalPos = new Vector2[childButtons.Count];
-        //to call the OpenMenu() function on start so we don't need to add the function manually in the inspector
+        //to call the OpenMenu() function on start instead of adding it manually in the inspector
         this.GetComponent<Button>().onClick.AddListener(() => { OpenMenu(); });
+
         //center pivot point
         this.GetComponent<RectTransform>().pivot = new Vector2(0.5f, 0.5f);
 
@@ -53,10 +57,10 @@ public class RadialMenuController : MonoBehaviour
                 //calculating where each child button's (x.y) position should be placed
                 float xPos = Mathf.Cos(angle * i) * buttonDistance;
                 float yPos = Mathf.Sin(angle * i) * buttonDistance;
-                //then set the position of each child buttons
+                
                 buttonGoalPos[i] = new Vector2(this.transform.position.x + xPos, this.transform.position.y + yPos);
             }
-            else //set the position of each child buttons back to the main button
+            else 
                 buttonGoalPos[i] = this.transform.position;
         }
         StartCoroutine(MoveButtons());
@@ -64,7 +68,6 @@ public class RadialMenuController : MonoBehaviour
 
     private IEnumerator MoveButtons()
     {
-        //check all child buttons then activate them
         foreach (Button b in childButtons)
             b.gameObject.SetActive(true);
         int loops = 0;
@@ -90,4 +93,12 @@ public class RadialMenuController : MonoBehaviour
                 b.gameObject.SetActive(false);
         }
     }
+    /*
+    public static List<Button> GetTopLevelChildren(Transform Parent)
+    {
+        List<Button> Children = new List<Button>();
+        for (int ID = 0; ID < Parent.childCount; ID++)
+            Children.Add(Parent.GetChild(ID).GetComponent<Button>());
+        return Children;
+    }*/
 }

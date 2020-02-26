@@ -12,7 +12,7 @@ public class RadialMenuController : MonoBehaviour
     bool open = false;
     //initial distance between main button and any of the child buttons
     //increase if more buttons needed else it can be lowered
-    int buttonDistance = 100;
+    int buttonDistance = 150;
     //the speed of the buttons travelling from main button to buttonGoalPos
     float speed = 3.0f;
     //array of child buttons' destinated position after menu is opened

@@ -8,45 +8,29 @@ public class Settings : MonoBehaviour
     public GameObject settings;
     public Slider volumeSlider;
     public TMPro.TMP_Dropdown ScreenResolutionDroppdown;
+    public Toggle screenModeToggle;
     public Button closeButton;
     public Button saveButton;
     public AudioMixer audioMixer;
-    public int resolutionIndex;
     float volume = -80.0f;
+    bool isFullScreen = true;
 
-    Resolution[] resolutions;
+    List<Resolution> resolutions = new List<Resolution>();
     // Start is called before the first frame update
     void Start()
     {
+        PlayerPrefs.DeleteAll();
         settings.SetActive(false);
-        closeButton.GetComponent<Button>().onClick.AddListener(() => { CloseSettings(); });
-        saveButton.GetComponent<Button>().onClick.AddListener(() => { SaveSettings(); });
-        this.GetComponent<Button>().onClick.AddListener(() => { OpenSettings(); });
-        volumeSlider.GetComponent<Slider>().onValueChanged.AddListener(delegate { setVolume(volume); });
-        ScreenResolutionDroppdown.GetComponent<TMPro.TMP_Dropdown>().onValueChanged.AddListener(delegate { setResolution(); });
 
+        screenSettings();
+        setResolution(resolutions.Count - 1);
 
-        resolutions = Screen.resolutions;
-        ScreenResolutionDroppdown.ClearOptions();
-        List<string> resolutionOptions = new List<string>();
-        int currResolutionIndex = 0;
-        for (int i = 0; i < resolutions.Length; i++)
-        {
-            string resolutionOption = resolutions[i].width + "x" + resolutions[i].height;
-            resolutionOptions.Add(resolutionOption);
-            if (resolutions[i].width == Screen.currentResolution.width &&
-                resolutions[i].height == Screen.currentResolution.height) 
-                    currResolutionIndex = i;
-        }
-        ScreenResolutionDroppdown.AddOptions(resolutionOptions);
-        ScreenResolutionDroppdown.value = currResolutionIndex;
-        ScreenResolutionDroppdown.RefreshShownValue();
+        ScreenResolutionDroppdown.onValueChanged.AddListener(delegate { setResolution(ScreenResolutionDroppdown.value); });
     }
 
     // Update is called once per frame
     void Update()
     {
-        
     }
     public void OpenSettings()
     {
@@ -58,16 +42,46 @@ public class Settings : MonoBehaviour
     }
     public void SaveSettings()
     {
-
+        //fake button
     }
     public void setVolume(float volume)
     {
         audioMixer.SetFloat("volume", volume);
     }
-    public void setResolution()
+    public void setResolution(int resolutionIndex)
     {
         Resolution resolution = resolutions[resolutionIndex];
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
     }
+    public void screenSettings()
+    {
+        Resolution[] tempResolutions = Screen.resolutions;
 
+        List<string> resolutionOptions = new List<string>();
+
+        for (int i = 0; i < tempResolutions.Length; i++)
+        {
+            if (tempResolutions[i].width >= 1024)
+                resolutions.Add(tempResolutions[i]);
+        }
+
+        int currResolutionIndex = 0;
+        for (int i = 0; i < resolutions.Count; i++)
+        {
+            string resolutionOption = resolutions[i].width + "x" + resolutions[i].height + " @ " + resolutions[i].refreshRate + "Hz";
+
+            resolutionOptions.Add(resolutionOption);
+            if (resolutions[i].width == Screen.width && resolutions[i].height == Screen.height)
+                currResolutionIndex = i;
+        }
+        ScreenResolutionDroppdown.AddOptions(resolutionOptions);
+        ScreenResolutionDroppdown.value = currResolutionIndex;
+        ScreenResolutionDroppdown.RefreshShownValue();
+    }
+    public void setScreenMode()
+    {
+        isFullScreen = !isFullScreen;
+        Screen.fullScreen = isFullScreen;
+        Debug.Log(isFullScreen);
+    }
 }

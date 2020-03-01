@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Audio;
+
 public class Settings : MonoBehaviour
 {
     public GameObject settings;
@@ -48,11 +49,15 @@ public class Settings : MonoBehaviour
     {
         audioMixer.SetFloat("volume", volume);
     }
+
+
     public void setResolution(int resolutionIndex)
     {
         Resolution resolution = resolutions[resolutionIndex];
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
     }
+
+
     public void screenSettings()
     {
         Resolution[] tempResolutions = Screen.resolutions;
@@ -68,8 +73,7 @@ public class Settings : MonoBehaviour
         int currResolutionIndex = 0;
         for (int i = 0; i < resolutions.Count; i++)
         {
-            string resolutionOption = resolutions[i].width + "x" + resolutions[i].height + " @ " + resolutions[i].refreshRate + "Hz";
-
+            string resolutionOption = resolutions[i].width + "x" + resolutions[i].height;
             resolutionOptions.Add(resolutionOption);
             if (resolutions[i].width == Screen.width && resolutions[i].height == Screen.height)
                 currResolutionIndex = i;

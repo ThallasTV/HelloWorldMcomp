@@ -45,6 +45,10 @@ public class Settings : MonoBehaviour
     {
         //fake button
     }
+    public void CloseGame()
+    {
+        Application.Quit();
+    }
     public void setVolume(float volume)
     {
         audioMixer.SetFloat("volume", volume);
@@ -88,4 +92,5 @@ public class Settings : MonoBehaviour
         Screen.fullScreen = isFullScreen;
         Debug.Log(isFullScreen);
     }
+
 }

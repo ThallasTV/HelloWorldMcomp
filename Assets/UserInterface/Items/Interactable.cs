@@ -5,7 +5,7 @@ using UnityEngine;
 public class Interactable : MonoBehaviour
 {
     public GameObject grabbedObject;
-    float radius = 3f;
+    public float radius = 5f;
     // Start is called before the first frame update
     void Start()
     {

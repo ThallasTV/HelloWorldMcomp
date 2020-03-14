@@ -16,7 +16,6 @@ public class Spawner : MonoBehaviour
     void Start()
     {
         entities = new List<GameObject>();
-        //entities.Add(player);
         InvokeRepeating("Spawn", 0f, 1.0f / 1000.0f);
     }
 

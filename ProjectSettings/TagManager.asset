@@ -5,12 +5,13 @@ TagManager:
   serializedVersion: 2
   tags:
   - MainLight
-  - NPC
   - Obstacle
   - Water
   - Resource
   - Fire
   - Animal
+  - Human
+  - Spawner
   layers:
   - Default
   - TransparentFX

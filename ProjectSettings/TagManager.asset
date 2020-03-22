@@ -3,15 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - MainLight
-  - Obstacle
-  - Water
-  - Resource
-  - Fire
-  - Animal
-  - Human
-  - Spawner
+  tags: []
   layers:
   - Default
   - TransparentFX
@@ -22,7 +14,7 @@ TagManager:
   - 
   - 
   - PostProcessing
-  - 
+  - Grabbable
   - 
   - 
   - 

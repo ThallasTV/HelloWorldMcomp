@@ -4,18 +4,29 @@ using UnityEngine;
 
 public class Interactable : MonoBehaviour
 {
-    public GameObject grabbedObject;
+    [HideInInspector]
+    public GameObject inventory;
+
+    public OVRGrabbable grabbedObject;
     public float radius = 5f;
+    [HideInInspector]
+    public bool hasInteracted = false;
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        //check if an item is grabbed. change code here
+        if (grabbedObject.isGrabbed == true)
+        {
+            Debug.Log("Interacted");
+            hasInteracted = true;
+        }
+        else
+            hasInteracted = false;
     }
     
     public virtual void Interact()

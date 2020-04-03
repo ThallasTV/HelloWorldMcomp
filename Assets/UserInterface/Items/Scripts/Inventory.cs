@@ -16,22 +16,27 @@ public class Inventory : MonoBehaviour
         instance = this;
     }
     #endregion
+    public int slots = 5; //inventory slots
     public List<Item> items = new List<Item>();
-    // Start is called before the first frame update
-    void Start()
-    {
+    public delegate void OnItemChanged();
+    public OnItemChanged onItemChangedCallback;
 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-    public void Add(Item item)
+    public bool Add(Item item)
     {
         if (!item.isDefaultItem)
+        {
+            if (items.Count >= slots)
+            {
+                Debug.Log("Your inventory is full.");
+                return false;
+            }
+
             items.Add(item);
+            if (onItemChangedCallback != null)
+                onItemChangedCallback.Invoke();
+        }
+        return true;
+
     }
 
     public void Remove(Item item)

@@ -1,28 +1,31 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class GetEntitiesList : MonoBehaviour
+using Pada1.BBCore;           // Code attributes
+using Pada1.BBCore.Tasks;     // TaskStatus
+using Pada1.BBCore.Framework; // BasePrimitiveAction
+
+[Action("MyAction/GetEntitiesList")]
+[Help("Gets an entity from a designated list")]
+
+public class GetEntitiesList : BasePrimitiveAction
 {
-    public Spawner entity;
+    // Define the input parameter "list" (the list from the spawner prefab).
+    [InParam("list")]
+    public Spawner entity = GameObject.Find("AnimalSpawner").GetComponent<Spawner>();
 
+    // Define the input parameter "entitySpawner" (the spawner prefab).
+    [OutParam("entitySpawner")]
     public GameObject entitySpawner;
 
-    void Awake()
-    {
-        entity = gameObject.GetComponent<Spawner>();
+    public override TaskStatus OnUpdate()
+    {   // Sets the list gathered from the GameObject to "entity"
+        entity = entitySpawner.GetComponent<Spawner>();
 
+        return TaskStatus.COMPLETED;
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    //public override void OnUpdate()
+    //{
+    //    return TaskStatus.COMPLETED;
+    //}
 }

@@ -11,7 +11,7 @@ public class Spawner : MonoBehaviour
 
     public int Spawns = 5;
     int spawnCount = 0;
-    List<GameObject> entities;
+    public List<GameObject> entities;
 
     void Start()
     {

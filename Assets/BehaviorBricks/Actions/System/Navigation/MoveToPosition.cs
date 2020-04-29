@@ -1,6 +1,7 @@
 ﻿using Pada1.BBCore.Tasks;
 using Pada1.BBCore;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace BBUnity.Actions
 {
@@ -16,17 +17,17 @@ namespace BBUnity.Actions
         [Help("Target position where the game object will be moved")]
         public Vector3 target;
 
-        private UnityEngine.AI.NavMeshAgent navAgent;
+        private NavMeshAgent navAgent;
 
         /// <summary>Initialization Method of MoveToPosition.</summary>
         /// <remarks>Check if there is a NavMeshAgent to assign a default one and assign the destination to the NavMeshAgent the given position.</remarks>
         public override void OnStart()
         {
-            navAgent = gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>();
+            navAgent = gameObject.GetComponent<NavMeshAgent>();
             if (navAgent == null)
             {
                 Debug.LogWarning("The " + gameObject.name + " game object does not have a Nav Mesh Agent component to navigate. One with default values has been added", gameObject);
-                navAgent = gameObject.AddComponent<UnityEngine.AI.NavMeshAgent>();
+                navAgent = gameObject.AddComponent<NavMeshAgent>();
             }
             navAgent.SetDestination(target);
 

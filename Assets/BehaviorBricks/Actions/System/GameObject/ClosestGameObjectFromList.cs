@@ -5,7 +5,6 @@ using Pada1.BBCore;           // Code attributes
 using Pada1.BBCore.Tasks;     // TaskStatus
 
 namespace BBUnity.Actions
-
 {
     [Action("GameObject/ClosestGameObjectFromList")]
     public class ClosestGameObjectFromList : GOAction

@@ -8,10 +8,9 @@ public class Spawner : MonoBehaviour
     public GameObject wanderArea;
     //public GameObject player;
 
-
     public int Spawns = 5;
     int spawnCount = 0;
-    public List<GameObject> entities;
+    List<GameObject> entities;
 
     void Start()
     {
@@ -36,7 +35,6 @@ public class Spawner : MonoBehaviour
         {
             CancelInvoke();
         }
-
     }
 
     private Vector3 GetRandomPosition()

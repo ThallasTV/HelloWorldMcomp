@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-
 using Pada1.BBCore;           // Code attributes
 using Pada1.BBCore.Tasks;     // TaskStatus
 using Pada1.BBCore.Framework; // BasePrimitiveAction

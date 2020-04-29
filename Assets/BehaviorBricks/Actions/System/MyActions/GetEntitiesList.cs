@@ -11,7 +11,7 @@ public class GetEntitiesList : BasePrimitiveAction
 {
     // Define the input parameter "list" (the list from the spawner prefab).
     [InParam("list")]
-    public Spawner entity = GameObject.Find("AnimalSpawner").GetComponent<Spawner>();
+    public Spawner entity = GameObject.Find("Spawner").GetComponent<Spawner>();
 
     // Define the input parameter "entitySpawner" (the spawner prefab).
     [OutParam("entitySpawner")]

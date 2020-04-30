@@ -1,0 +1,155 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34a7c8ca992f915438a96c2077353778, type: 3}
+  m_Name: HumanAttackAnimal
+  m_EditorClassIdentifier: 
+  brickName: Assets/Behaviour Tree/HumanAttackAnimal.asset
+  xml: "\uFEFF<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<BehaviorBricks xmlns:ref=\"urn:padaone\"
+    version=\"1.0\">\r\n  <BehaviorTree id=\"0\" />\r\n  <runtimeInfo>\r\n    <BehaviorTree
+    id=\"0\" guid=\"0cdb37b3ecf283544a5a96f8ddfcf571\" nextId=\"25\">\r\n      <root>\r\n
+    \       <PrioritySelectorNode id=\"2\" />\r\n      </root>\r\n      <inputParams>\r\n
+    \       <inputValues>\r\n          <entry name=\"weaponPoint\" type=\"UnityEngine.Transform\"
+    isBlackboard=\"False\" />\r\n          <entry name=\"weapon\" type=\"UnityEngine.GameObject\"
+    isBlackboard=\"False\" />\r\n          <entry name=\"weaponVelocity\" type=\"System.Single\"
+    isBlackboard=\"False\" value=\"30\" />\r\n          <entry name=\"animal_tag\"
+    type=\"System.String\" isBlackboard=\"False\" />\r\n          <entry name=\"closeDistance\"
+    type=\"System.Single\" isBlackboard=\"False\" value=\"30\" />\r\n          <entry
+    name=\"animal_list\" type=\"System.Collections.Generic.List`1[[UnityEngine.GameObject,
+    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]\"
+    isBlackboard=\"False\" />\r\n        </inputValues>\r\n      </inputParams>\r\n
+    \     <outputParams>\r\n        <outputValues>\r\n          <entry name=\"animal_GameObject\"
+    type=\"UnityEngine.GameObject\" isBlackboard=\"True\" />\r\n        </outputValues>\r\n
+    \     </outputParams>\r\n      <localParams />\r\n    </BehaviorTree>\r\n    <PrioritySelectorNode
+    id=\"2\">\r\n      <children>\r\n        <elem>\r\n          <GuardAndNode>\r\n
+    \           <guard>\r\n              <ConditionEvalNode id=\"21\" />\r\n            </guard>\r\n
+    \           <child>\r\n              <ActionNode id=\"11\" />\r\n            </child>\r\n
+    \         </GuardAndNode>\r\n        </elem>\r\n        <elem>\r\n          <GuardAndNode>\r\n
+    \           <guard>\r\n              <ConditionEvalNode id=\"18\" />\r\n            </guard>\r\n
+    \           <child>\r\n              <PrioritySelectorNode id=\"17\" />\r\n            </child>\r\n
+    \         </GuardAndNode>\r\n        </elem>\r\n      </children>\r\n      <inputParams
+    />\r\n      <outputParams />\r\n      <localParams />\r\n    </PrioritySelectorNode>\r\n
+    \   <ConditionEvalNode id=\"21\" policy=\"ATOMIC_CHECK\" name=\"AlwaysTrue\">\r\n
+    \     <inputParams />\r\n      <outputParams />\r\n      <localParams />\r\n    </ConditionEvalNode>\r\n
+    \   <ActionNode id=\"11\" action=\"GameObject/ClosestGameObjectFromList\">\r\n
+    \     <inputParams>\r\n        <inputValues>\r\n          <entry name=\"list\"
+    type=\"System.Collections.Generic.List`1[[UnityEngine.GameObject, UnityEngine.CoreModule,
+    Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]\" isBlackboard=\"True\"
+    blackboard=\"animal_list\" />\r\n        </inputValues>\r\n      </inputParams>\r\n
+    \     <outputParams>\r\n        <outputValues>\r\n          <entry name=\"foundGameObject\"
+    type=\"UnityEngine.GameObject\" isBlackboard=\"True\" blackboard=\"animal_GameObject\"
+    />\r\n        </outputValues>\r\n      </outputParams>\r\n      <localParams />\r\n
+    \   </ActionNode>\r\n    <ConditionEvalNode id=\"18\" policy=\"ATOMIC_CHECK\"
+    name=\"Perception/IsTargetClose\">\r\n      <inputParams>\r\n        <inputValues>\r\n
+    \         <entry name=\"target\" type=\"UnityEngine.GameObject\" isBlackboard=\"True\"
+    blackboard=\"animal_GameObject\" />\r\n          <entry name=\"closeDistance\"
+    type=\"System.Single\" isBlackboard=\"False\" value=\"30\" />\r\n        </inputValues>\r\n
+    \     </inputParams>\r\n      <outputParams />\r\n      <localParams />\r\n    </ConditionEvalNode>\r\n
+    \   <PrioritySelectorNode id=\"17\">\r\n      <children>\r\n        <elem>\r\n
+    \         <GuardAndNode>\r\n            <guard>\r\n              <ConditionEvalNode
+    id=\"19\" />\r\n            </guard>\r\n            <child>\r\n              <ActionNode
+    id=\"5\" />\r\n            </child>\r\n          </GuardAndNode>\r\n        </elem>\r\n
+    \       <elem>\r\n          <GuardAndNode>\r\n            <guard>\r\n              <ConditionEvalNode
+    id=\"20\" />\r\n            </guard>\r\n            <child>\r\n              <ActionNode
+    id=\"7\" />\r\n            </child>\r\n          </GuardAndNode>\r\n        </elem>\r\n
+    \     </children>\r\n      <inputParams />\r\n      <outputParams />\r\n      <localParams
+    />\r\n    </PrioritySelectorNode>\r\n    <ConditionEvalNode id=\"19\" policy=\"ATOMIC_CHECK\"
+    name=\"Perception/IsTargetClose\">\r\n      <inputParams>\r\n        <inputValues>\r\n
+    \         <entry name=\"target\" type=\"UnityEngine.GameObject\" isBlackboard=\"True\"
+    blackboard=\"animal_GameObject\" />\r\n          <entry name=\"closeDistance\"
+    type=\"System.Single\" isBlackboard=\"False\" value=\"5\" />\r\n        </inputValues>\r\n
+    \     </inputParams>\r\n      <outputParams />\r\n      <localParams />\r\n    </ConditionEvalNode>\r\n
+    \   <ActionNode id=\"5\" action=\"MyActions/HumanAttackOnce\">\r\n      <inputParams>\r\n
+    \       <inputValues>\r\n          <entry name=\"shootPoint\" type=\"UnityEngine.Transform\"
+    isBlackboard=\"True\" blackboard=\"weaponPoint\" />\r\n          <entry name=\"weapon\"
+    type=\"UnityEngine.GameObject\" isBlackboard=\"True\" blackboard=\"weapon\" />\r\n
+    \         <entry name=\"velocity\" type=\"System.Single\" isBlackboard=\"True\"
+    blackboard=\"weaponVelocity\" />\r\n          <entry name=\"weaponPoint\" type=\"UnityEngine.Transform\"
+    isBlackboard=\"True\" blackboard=\"weaponPoint\" />\r\n        </inputValues>\r\n
+    \     </inputParams>\r\n      <outputParams />\r\n      <localParams />\r\n    </ActionNode>\r\n
+    \   <ConditionEvalNode id=\"20\" policy=\"ATOMIC_CHECK\" name=\"Perception/IsTargetClose\">\r\n
+    \     <inputParams>\r\n        <inputValues>\r\n          <entry name=\"target\"
+    type=\"UnityEngine.GameObject\" isBlackboard=\"True\" blackboard=\"animal_GameObject\"
+    />\r\n          <entry name=\"closeDistance\" type=\"System.Single\" isBlackboard=\"False\"
+    value=\"25\" />\r\n        </inputValues>\r\n      </inputParams>\r\n      <outputParams
+    />\r\n      <localParams />\r\n    </ConditionEvalNode>\r\n    <ActionNode id=\"7\"
+    action=\"Navigation/MoveToGameObject\">\r\n      <inputParams>\r\n        <inputValues>\r\n
+    \         <entry name=\"target\" type=\"UnityEngine.GameObject\" isBlackboard=\"True\"
+    blackboard=\"animal_GameObject\" />\r\n        </inputValues>\r\n      </inputParams>\r\n
+    \     <outputParams />\r\n      <localParams />\r\n    </ActionNode>\r\n  </runtimeInfo>\r\n
+    \ <editorInfo>\r\n    <BehaviorTree id=\"0\" _name=\"HumanAttackAnimal\" _description=\"\"
+    _removeIfClosed=\"False\">\r\n      <_rootList>\r\n        <elem>\r\n          <PrioritySelectorNode
+    id=\"2\" />\r\n        </elem>\r\n        <elem>\r\n          <ActionNode id=\"5\"
+    />\r\n        </elem>\r\n        <elem>\r\n          <ActionNode id=\"7\" />\r\n
+    \       </elem>\r\n        <elem>\r\n          <ActionNode id=\"11\" />\r\n        </elem>\r\n
+    \       <elem>\r\n          <PrioritySelectorNode id=\"17\" />\r\n        </elem>\r\n
+    \       <elem>\r\n          <ConditionEvalNode id=\"18\" />\r\n        </elem>\r\n
+    \       <elem>\r\n          <ConditionEvalNode id=\"19\" />\r\n        </elem>\r\n
+    \       <elem>\r\n          <ConditionEvalNode id=\"20\" />\r\n        </elem>\r\n
+    \       <elem>\r\n          <ConditionEvalNode id=\"21\" />\r\n        </elem>\r\n
+    \     </_rootList>\r\n      <_nodes>\r\n        <nodes>\r\n          <PrioritySelectorNode
+    id=\"2\" />\r\n          <ActionNode id=\"5\" />\r\n          <ConditionEvalNode
+    id=\"19\" />\r\n          <ActionNode id=\"7\" />\r\n          <ConditionEvalNode
+    id=\"20\" />\r\n          <ActionNode id=\"11\" />\r\n          <ConditionEvalNode
+    id=\"21\" />\r\n          <PrioritySelectorNode id=\"17\" />\r\n          <ConditionEvalNode
+    id=\"18\" />\r\n        </nodes>\r\n      </_nodes>\r\n    </BehaviorTree>\r\n
+    \   <PrioritySelectorNode id=\"2\">\r\n      <_data>\r\n        <data breakpoint=\"0\"
+    selected=\"False\" position=\"406.786 250.7858\" name=\"Priority Selector\" description=\"\"
+    cardinality=\"1\" hasParent=\"False\">\r\n          <BehaviorTree id=\"22\" />\r\n
+    \       </data>\r\n      </_data>\r\n    </PrioritySelectorNode>\r\n    <ConditionEvalNode
+    id=\"21\">\r\n      <_data>\r\n        <data breakpoint=\"0\" selected=\"False\"
+    position=\"646.8759 522.9592\" name=\"AlwaysTrue\" description=\"Eval\" cardinality=\"1\"
+    hasParent=\"True\">\r\n          <BehaviorTree id=\"22\" />\r\n          <ConditionEvalNode
+    id=\"21\" />\r\n          <PrioritySelectorNode id=\"2\" />\r\n        </data>\r\n
+    \     </_data>\r\n    </ConditionEvalNode>\r\n    <ActionNode id=\"11\">\r\n      <_data>\r\n
+    \       <data breakpoint=\"0\" selected=\"False\" position=\"684.9275 395.2142\"
+    name=\"GameObject/ClosestGameObjectFromList\" description=\"\" cardinality=\"0\"
+    hasParent=\"False\">\r\n          <BehaviorTree id=\"0\" />\r\n          <ActionNode
+    id=\"11\" />\r\n        </data>\r\n      </_data>\r\n    </ActionNode>\r\n    <ConditionEvalNode
+    id=\"18\">\r\n      <_data>\r\n        <data breakpoint=\"0\" selected=\"False\"
+    position=\"691.265 551.4283\" name=\"Perception/IsTargetClose\" description=\"Eval\"
+    cardinality=\"1\" hasParent=\"True\">\r\n          <BehaviorTree id=\"22\" />\r\n
+    \         <ConditionEvalNode id=\"18\" />\r\n          <PrioritySelectorNode id=\"2\"
+    />\r\n        </data>\r\n      </_data>\r\n    </ConditionEvalNode>\r\n    <PrioritySelectorNode
+    id=\"17\">\r\n      <_data>\r\n        <data breakpoint=\"0\" selected=\"False\"
+    position=\"325.1432 401.4286\" name=\"Priority Selector\" description=\"\" cardinality=\"1\"
+    hasParent=\"False\">\r\n          <BehaviorTree id=\"0\" />\r\n          <PrioritySelectorNode
+    id=\"17\" />\r\n        </data>\r\n      </_data>\r\n    </PrioritySelectorNode>\r\n
+    \   <ConditionEvalNode id=\"19\">\r\n      <_data>\r\n        <data breakpoint=\"0\"
+    selected=\"False\" position=\"283.9697 808.5715\" name=\"Perception/IsTargetClose\"
+    description=\"Eval\" cardinality=\"1\" hasParent=\"True\">\r\n          <BehaviorTree
+    id=\"0\" />\r\n          <ConditionEvalNode id=\"19\" />\r\n          <PrioritySelectorNode
+    id=\"17\" />\r\n        </data>\r\n      </_data>\r\n    </ConditionEvalNode>\r\n
+    \   <ActionNode id=\"5\">\r\n      <_data>\r\n        <data breakpoint=\"0\" selected=\"False\"
+    position=\"225.6068 605.8571\" name=\"MyActions/HumanAttackOnce\" description=\"Clone
+    a 'weapon' and shoots it through the Forward axis with the specified velocity.\"
+    cardinality=\"0\" hasParent=\"False\">\r\n          <BehaviorTree id=\"0\" />\r\n
+    \         <ActionNode id=\"5\" />\r\n        </data>\r\n      </_data>\r\n    </ActionNode>\r\n
+    \   <ConditionEvalNode id=\"20\">\r\n      <_data>\r\n        <data breakpoint=\"0\"
+    selected=\"True\" position=\"677.2842 891.1729\" name=\"Perception/IsTargetClose\"
+    description=\"Eval\" cardinality=\"1\" hasParent=\"True\">\r\n          <BehaviorTree
+    id=\"0\" />\r\n          <ConditionEvalNode id=\"20\" />\r\n          <PrioritySelectorNode
+    id=\"17\" />\r\n        </data>\r\n      </_data>\r\n    </ConditionEvalNode>\r\n
+    \   <ActionNode id=\"7\">\r\n      <_data>\r\n        <data breakpoint=\"0\" selected=\"False\"
+    position=\"507.7847 607.9641\" name=\"Navigation/MoveToGameObject\" description=\"Moves
+    the game object towards a given target by using a NavMeshAgent\" cardinality=\"0\"
+    hasParent=\"False\">\r\n          <BehaviorTree id=\"0\" />\r\n          <ActionNode
+    id=\"7\" />\r\n        </data>\r\n      </_data>\r\n    </ActionNode>\r\n  </editorInfo>\r\n
+    \ <runtimeInfo>\r\n    <BehaviorTree id=\"22\" nextId=\"1\">\r\n      <inputParams
+    />\r\n      <outputParams />\r\n      <localParams />\r\n    </BehaviorTree>\r\n
+    \ </runtimeInfo>\r\n  <editorInfo>\r\n    <BehaviorTree id=\"22\" _removeIfClosed=\"False\">\r\n
+    \     <_rootList />\r\n      <_nodes>\r\n        <nodes />\r\n      </_nodes>\r\n
+    \   </BehaviorTree>\r\n  </editorInfo>\r\n</BehaviorBricks>"
+  zoom: 0.7
+  subslist:
+  - {fileID: 11400000, guid: 923a29786fd352e45878206b289c58d2, type: 2}
+  - {fileID: 11400000, guid: d67853666e00cbf4890629437d94644c, type: 2}
+  _guid: 0cdb37b3ecf283544a5a96f8ddfcf571

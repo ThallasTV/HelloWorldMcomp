@@ -7,12 +7,12 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Water
-  m_Shader: {fileID: -6465566751694194690, guid: 499a4d131cbc180408d6474391157e8e,
+  m_Name: Shader Graphs_WaterfallShader
+  m_Shader: {fileID: -6465566751694194690, guid: 8c3abe67534172f4c859a66dabdfe4f9,
     type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
+  m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap:
@@ -23,10 +23,9 @@ Material:
     serializedVersion: 3
     m_TexEnvs: []
     m_Floats:
-    - Vector1_35A424CF: 5
-    - Vector1_362749C5: 0.1
-    - Vector1_C82A2A55: 10
-    - Vector1_E2B267F4: 20
+    - Vector1_20AF379B: 10
+    - Vector1_AAEC1B77: 20
+    - Vector1_B10FB7D: 5
     m_Colors:
-    - Color_BC82E41B: {r: 0, g: 2.0857036, b: 7.3772106, a: 0}
-    - Color_FFD0B757: {r: 0, g: 0.7555051, b: 1, a: 0}
+    - Color_F549F32A: {r: 0, g: 0.28459975, b: 0.98833734, a: 0}
+    - Vector2_92273D44: {r: 0, g: -0.1, b: 0, a: 0}

@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Shader Graphs_WaterfallShader
+  m_Shader: {fileID: -6465566751694194690, guid: 8c3abe67534172f4c859a66dabdfe4f9,
+    type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 1
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap:
+    MotionVector: User
+  disabledShaderPasses:
+  - MOTIONVECTORS
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Floats:
+    - Vector1_20AF379B: 1
+    - Vector1_AAEC1B77: 12
+    - Vector1_B10FB7D: 3
+    m_Colors:
+    - Color_F549F32A: {r: 0, g: 0.28459975, b: 0.98833734, a: 0}
+    - Vector2_92273D44: {r: 0, g: -0.5, b: 0, a: 0}

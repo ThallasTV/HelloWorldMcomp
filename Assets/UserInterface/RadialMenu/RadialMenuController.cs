@@ -12,7 +12,7 @@ public class RadialMenuController : MonoBehaviour
     bool open = false;
     //initial distance between main button and any of the child buttons
     //increase if more buttons needed else it can be lowered
-    int buttonDistance = 150;
+    int buttonDistance = 4;
     //the speed of the buttons travelling from main button to buttonGoalPos
     float speed = 3.0f;
     //array of child buttons' destinated position after menu is opened
@@ -93,12 +93,5 @@ public class RadialMenuController : MonoBehaviour
                 b.gameObject.SetActive(false);
         }
     }
-    /*
-    public static List<Button> GetTopLevelChildren(Transform Parent)
-    {
-        List<Button> Children = new List<Button>();
-        for (int ID = 0; ID < Parent.childCount; ID++)
-            Children.Add(Parent.GetChild(ID).GetComponent<Button>());
-        return Children;
-    }*/
+
 }

@@ -8,13 +8,15 @@ public class Spell : MonoBehaviour
     public GameObject spells;
     public Button rainButton;
     public Button meteorButton;
+    public Button cloudButton;
     public GameObject rain;
-    GameObject[] clouds;
-    public GameObject meteor;
+    public GameObject cloud;
+    //public GameObject meteor; //no meteor
 
     bool open = false;
     bool raining = false;
-    float rainTime = 3.0f;
+    //float rainTime = 3.0f;
+    bool cloudBool = false;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +24,7 @@ public class Spell : MonoBehaviour
         this.GetComponent<Button>().onClick.AddListener(() => { OpenSpells(); });
         rainButton.GetComponent<Button>().onClick.AddListener(() => { CallRain(); });
         meteorButton.GetComponent<Button>().onClick.AddListener(() => { CallMeteor(); });
+        cloudButton.GetComponent<Button>().onClick.AddListener(() => { CallCloud(); });
         spells.SetActive(false);
     }
 
@@ -48,5 +51,10 @@ public class Spell : MonoBehaviour
     public void CallMeteor()
     {
         Debug.Log("HI");
+    }
+    public void CallCloud()
+    {
+        cloudBool = !cloudBool;
+        cloud.SetActive(cloudBool);
     }
 }
